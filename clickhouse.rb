@@ -1,8 +1,8 @@
 class Clickhouse < Formula
   desc "ClickHouse is a free analytic DBMS for big data."
   homepage "https://clickhouse.yandex"
-  url "https://github.com/yandex/ClickHouse.git", :tag => "v18.14.0-stable"
-  version "18.14.0"
+  url "https://github.com/yandex/ClickHouse.git", :tag => "v18.14.9-stable"
+  version "18.14.9"
 
   head "https://github.com/yandex/ClickHouse.git"
 
@@ -18,13 +18,6 @@ class Clickhouse < Formula
   depends_on "zlib" => :build
   depends_on "readline" => :build
   
-  bottle do
-    cellar :any
-    rebuild 2
-    root_url 'https://github.com/arduanov/homebrew-clickhouse/releases/download/v1.1.54394'
-    sha256 "ec4057ae98a2e153fa2ef96d7cbd8245d908c6e17de99e2ec7068413a47bfe8d" => :high_sierra
-  end
-
   def install
     inreplace "libs/libmysqlxx/cmake/find_mysqlclient.cmake", "/usr/local/opt/mysql/lib", "/usr/local/opt/mysql@5.7/lib"
     inreplace "libs/libmysqlxx/cmake/find_mysqlclient.cmake", "/usr/local/opt/mysql/include", "/usr/local/opt/mysql@5.7/include"
