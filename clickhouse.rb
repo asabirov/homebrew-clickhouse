@@ -1,15 +1,12 @@
 class Clickhouse < Formula
   desc "ClickHouse is a free analytic DBMS for big data."
   homepage "https://clickhouse.yandex"
-  url "https://github.com/yandex/ClickHouse.git", :tag => "v1.1.54394-stable"
-  version "1.1.54394"
+  url "https://github.com/yandex/ClickHouse.git", :tag => "v18.14.8-stable"
+  version "18.14.8"
 
   head "https://github.com/yandex/ClickHouse.git"
 
-  devel do
-    url "https://github.com/yandex/ClickHouse.git", :tag => "v18.1.0-stable"
-  end
-
+ 
   depends_on "gcc"
   depends_on "mysql@5.7" => :build
   depends_on "icu4c" => :build
@@ -48,7 +45,7 @@ class Clickhouse < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
-      system "make"
+      system "ninja"
     end
 
     bin.install "#{buildpath}/build/dbms/programs/clickhouse"
