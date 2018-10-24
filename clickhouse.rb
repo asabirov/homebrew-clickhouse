@@ -34,6 +34,9 @@ class Clickhouse < Formula
       -DUSE_INTERNAL_BOOST_LIBRARY=1
       -DENABLE_EMBEDDED_COMPILER=1
       -DUSE_INTERNAL_LLVM_LIBRARY=0
+      -DENABLE_MYSQL=1
+      -DUSE_INTERNAL_MYSQL_LIBRARY=1 
+      -DAPPLE=1
     ]
 
     mkdir "build" do
